@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repeated Error with Changing Text</title>
+    <script>
+        let messages = [
+            "Boss?",
+            "Bossing?!.",
+            "Boss, ikaw nanaman.",
+            "Bossing, kamusta ang buhay buhay.",
+            "Kupal ka talaga, boss."
+        ];
+
+        let index = 0;
+
+        function showError() {
+            // Show the alert with the current message
+            alert(messages[index]);
+
+            // Update the index to point to the next message
+            index = (index + 1) % messages.length; // Loops back to the start after the last message
+
+            // Recur after the alert is closed
+            setTimeout(showError, 0); // 0ms delay to reappear immediately after the alert is dismissed
+        }
+
+        // Start showing the error when the page loads
+        window.onload = showError;
+    </script>
+</head>
+<body>
+</body>
+</html>
